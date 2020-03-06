@@ -5,22 +5,15 @@ require 'directors_database'
 # using director_data as input
 
 
-def gross_for_director(direc)
-my_hash = Hash.new
-db = directors_database
-d = 0
- while d < db.length do
- if db[d][:name] == direc
-   t = 0 
-      while t < directors[d][:movies].length do 
-      total += directors[d][:movies][t][:worldwide_gross]
-      t += 1 
-    end
-  my_hash.store("#{db[d][:name]}", total)
-  d += 1
- end
-  end
-return my_hash
+def gross_for_director(d)
+total = 0
+i = 0
+while i < d[:movies].length do
+
+total += d[:movies][i][:worldwide_gross]
+i += 1
+end
+return total
 end
 
 
